@@ -15,7 +15,7 @@ from torchvision import transforms
 
 
 DEFAULT_INPUT_PATH = "./load/data"
-DEFAULT_DATASETS = ("realfusion15", "morpheus30")
+DEFAULT_DATASETS = ("realfusion15", "morpheusobj30")
 DEFAULT_METRICS = ("clip", "maniqa", "clipiqa", "psnr", "lpips")
 PYIQA_METRICS = ("maniqa", "clipiqa")
 IQA_IMAGE_SIZE = 512

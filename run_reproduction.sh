@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Reproduce Morpheus3D on RealFusion15 and Morpheus30:
+# Reproduce Morpheus3D on RealFusion15 and MorpheusObj30:
 #
 #   coarse -> refine -> texture -> five evaluation metrics
 #
@@ -28,11 +28,11 @@ usage() {
 Usage: ./run_reproduction.sh [OPTIONS]
 
 By default, the script reproduces every scene in both realfusion15 and
-morpheus30 on physical GPU 0. Each run uses a new timestamped output root.
+morpheusobj30 on physical GPU 0. Each run uses a new timestamped output root.
 
 Options:
   --dataset NAME      Run one dataset. Repeat to select both datasets.
-                      Choices: realfusion15, morpheus30.
+                      Choices: realfusion15, morpheusobj30.
   --scene NAME        Run one scene. Repeat to select multiple scenes.
                       This option requires exactly one selected dataset.
   --gpu ID            Physical GPU index to expose to the pipeline (default: 0).
@@ -43,7 +43,7 @@ Options:
 Examples:
   ./run_reproduction.sh --gpu 0
   ./run_reproduction.sh --dataset realfusion15 --scene banana --gpu 0
-  ./run_reproduction.sh --dataset morpheus30 --scene scene_00 --gpu 1
+  ./run_reproduction.sh --dataset morpheusobj30 --scene scene_00 --gpu 1
 EOF
 }
 
@@ -74,7 +74,7 @@ require_value() {
 append_dataset() {
     local dataset="$1"
     case "${dataset}" in
-        realfusion15|morpheus30) ;;
+        realfusion15|morpheusobj30) ;;
         *) die "Unsupported dataset: ${dataset}" ;;
     esac
 
@@ -150,7 +150,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 if [[ ${#DATASETS[@]} -eq 0 ]]; then
-    DATASETS=(realfusion15 morpheus30)
+    DATASETS=(realfusion15 morpheusobj30)
 fi
 
 [[ "${GPU_ID}" =~ ^[0-9]+$ ]] || die "--gpu must be one physical GPU index"

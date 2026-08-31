@@ -50,7 +50,7 @@ The two evaluation datasets are included under `load/data`:
 | Dataset | Directory | Scenes |
 | --- | --- | ---: |
 | RealFusion15 | `load/data/realfusion15` | 15 |
-| Morpheus30 | `load/data/morpheus30` | 30 |
+| MorpheusObj30 | `load/data/morpheusobj30` | 30 |
 
 ## Reproduction
 
@@ -60,11 +60,11 @@ Run the complete pipeline and evaluate both datasets:
 ./run_reproduction.sh --gpu 0
 ```
 
-By default, this processes every scene in RealFusion15 and Morpheus30 and writes to a new timestamped directory under `outputs/`. For a one-scene test:
+By default, this processes every scene in RealFusion15 and MorpheusObj30 and writes to a new timestamped directory under `outputs/`. For a one-scene test:
 
 ```bash
 ./run_reproduction.sh --dataset realfusion15 --scene banana --gpu 0
-./run_reproduction.sh --dataset morpheus30 --scene scene_00 --gpu 0
+./run_reproduction.sh --dataset morpheusobj30 --scene scene_00 --gpu 0
 ```
 
 Useful options include:
